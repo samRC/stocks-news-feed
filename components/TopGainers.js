@@ -9,15 +9,17 @@ import {
   Heading,
 } from "native-base";
 import marketService from "../services/market";
+import { useNavigation } from "@react-navigation/native";
 
 const SingleStock = ({ stock }) => {
-  const handleTouch = (stock) => {
+  const navigation = useNavigation();
+  const handleTouch = () => {
     return () => {
-      alert(`Touched: ${stock.symbol}`);
+      navigation.navigate("News", stock);
     };
   };
   return (
-    <TouchableOpacity onPress={handleTouch(stock)}>
+    <TouchableOpacity onPress={handleTouch()}>
       <Flex style={{ backgroundColor: "#eee" }} direction="row" p={4}>
         <Text width={150}>{stock.symbol}</Text>
         <Divider bg="green.500" size={3} mx={4} orientation="vertical" />
@@ -27,7 +29,7 @@ const SingleStock = ({ stock }) => {
   );
 };
 
-export function TopGainers() {
+export default function TopGainers() {
   const [gainers, setGainers] = useState([]);
 
   useEffect(() => {
@@ -38,46 +40,45 @@ export function TopGainers() {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Heading
-        style={styles.heading}
-        alignSelf={{
-          base: "center",
-          md: "flex-start",
-        }}
-        size="xl"
-      >
-        Top 10 Gainers
-      </Heading>
-      <Flex locked style={{ backgroundColor: "#ccc" }} direction="row" p={4}>
-        <Heading size="md" width={150}>
-          Symbol
-        </Heading>
-        <Divider bg="green.500" size={3} mx={4} orientation="vertical" />
-        <Heading width={100} size="md">{`% Change`}</Heading>
-      </Flex>
-      <ScrollView>
-        {gainers &&
-          !!gainers.length &&
-          gainers.map((x) => (
-            <View key={x.symbol}>
-              <SingleStock stock={x} />
-            </View>
-          ))}
-      </ScrollView>
-    </View>
-  );
-}
-
-export default () => {
-  return (
     <NativeBaseProvider>
       <Center flex={1}>
-        <TopGainers />
+        <View style={styles.container}>
+          <Heading
+            style={styles.heading}
+            alignSelf={{
+              base: "center",
+              md: "flex-start",
+            }}
+            size="xl"
+          >
+            Top 10 Gainers
+          </Heading>
+          <Flex
+            locked
+            style={{ backgroundColor: "#ccc" }}
+            direction="row"
+            p={4}
+          >
+            <Heading size="md" width={150}>
+              Symbol
+            </Heading>
+            <Divider bg="green.500" size={3} mx={4} orientation="vertical" />
+            <Heading width={100} size="md">{`% Change`}</Heading>
+          </Flex>
+          <ScrollView>
+            {gainers &&
+              !!gainers.length &&
+              gainers.map((x) => (
+                <View key={x.symbol}>
+                  <SingleStock stock={x} />
+                </View>
+              ))}
+          </ScrollView>
+        </View>
       </Center>
     </NativeBaseProvider>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
