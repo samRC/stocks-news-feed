@@ -8,19 +8,11 @@ import {
   NativeBaseProvider,
   ScrollView,
   Spinner,
-  Text,
   View,
   VStack,
 } from "native-base";
 import newsService from "../services/news";
-
-const NewsArticle = ({ article }) => {
-  return (
-    <Box>
-      <Text>{article.title}</Text>
-    </Box>
-  );
-};
+import NewsArticle from "./NewsArticle";
 
 export default function News() {
   const symbol = useRoute().params.symbol;
