@@ -37,7 +37,6 @@ export default function Nifty50() {
       .getNifty50Stocks()
       .then((data) => setStocks(data))
       .catch((e) => alert(e));
-    console.log(stocks);
   }, []);
 
   return (
