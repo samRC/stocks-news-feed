@@ -4,7 +4,7 @@
     "slug": "stocks-news-feed",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "",
+    "icon": "./assets/stocks-news-feed-icon.png",
     "splash": {
       "image": "",
       "resizeMode": "contain",
@@ -21,7 +21,9 @@
       "adaptiveIcon": {
         "foregroundImage": "",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "space.samrc.stocks_news_feed",
+      "versionCode": 1
     },
     "web": {
       "favicon": ""
