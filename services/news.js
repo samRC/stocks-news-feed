@@ -1,3 +1,6 @@
+import axios from "axios";
+import config from "./config";
+
 const mockData = [
   {
     guid: "1",
@@ -25,8 +28,8 @@ const mockData = [
   },
 ];
 
-const getNewsOf = (company) => {
-  return mockData;
+const getNewsOf = (symbol) => {
+  return axios.get(`${config.URL}/news/${symbol}`).then((res) => res.data);
 };
 
 export default { getNewsOf };
