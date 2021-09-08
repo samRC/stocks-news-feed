@@ -7,6 +7,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import News from "./components/News";
 import Nifty50 from "./components/Nifty50";
+import Browser from "./components/Browser";
 const Stack = createNativeStackNavigator();
 
 const HomeScreen = () => {
@@ -27,6 +28,7 @@ export default function App() {
         <Stack.Screen name="TopGainers" component={TopGainers} />
         <Stack.Screen name="Nifty50" component={Nifty50} />
         <Stack.Screen name="News" component={News} />
+        <Stack.Screen name="Browser" component={Browser} />
       </Stack.Navigator>
     </NavigationContainer>
   );
