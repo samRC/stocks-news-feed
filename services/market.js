@@ -5,4 +5,8 @@ const getTopGainers = () => {
   return axios.get(`${config.URL}/topgainers`).then((res) => res.data);
 };
 
-export default { getTopGainers };
+const getNifty50Stocks = () => {
+  return axios.get(`${config.URL}/stockslist/nifty50`).then((res) => res.data);
+};
+
+export default { getTopGainers, getNifty50Stocks };
