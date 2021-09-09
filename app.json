@@ -2,7 +2,7 @@
   "expo": {
     "name": "stocks-news-feed",
     "slug": "stocks-news-feed",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/stocks-news-feed-icon.png",
     "splash": {
@@ -23,7 +23,8 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "space.samrc.stocks_news_feed",
-      "versionCode": 1
+      "versionCode": 2,
+      "permissions": []
     },
     "web": {
       "favicon": ""
