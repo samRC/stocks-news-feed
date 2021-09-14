@@ -17,13 +17,15 @@ import NewsArticle from "./NewsArticle";
 export default function News() {
   const symbol = useRoute().params.symbol;
   const [newsArticles, setNewsArticles] = useState([]);
+  const [statusMsg, setStatusMsg] = useState("");
+
   useEffect(() => {
     newsService
       .getNewsOf(symbol)
       .then((data) => {
         setNewsArticles(data);
       })
-      .catch((e) => alert(e));
+      .catch((e) => setStatusMsg(e.response.data.error));
   }, []);
 
   return (
@@ -31,7 +33,12 @@ export default function News() {
       <Center flex={1}>
         <View>
           <Heading>News of: {symbol}</Heading>
-          {newsArticles.length == 0 && <Spinner size="lg" />}
+          {newsArticles.length == 0 && statusMsg.length == 0 && (
+            <Spinner size="lg" />
+          )}
+          <Heading size="md" style={{ color: "crimson" }}>
+            {statusMsg}
+          </Heading>
 
           <ScrollView
             showsHorizontalScrollIndicator={false}
