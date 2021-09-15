@@ -32,11 +32,11 @@ export default function News() {
     <NativeBaseProvider>
       <Center flex={1}>
         <View>
-          <Heading>News of: {symbol}</Heading>
+          <Heading style={{ textAlign: "center" }}>{symbol}</Heading>
           {newsArticles.length == 0 && statusMsg.length == 0 && (
             <Spinner size="lg" />
           )}
-          <Heading size="md" style={{ color: "crimson" }}>
+          <Heading size="md" style={{ textAlign: "center", color: "crimson" }}>
             {statusMsg}
           </Heading>
 

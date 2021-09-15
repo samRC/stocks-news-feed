@@ -28,6 +28,20 @@ export default function NewsArticle({ article }) {
           <Heading size="md" ml={-1}>
             {article.title}
           </Heading>
+          <Heading
+            size="xs"
+            _light={{
+              color: "purple.500",
+            }}
+            _dark={{
+              color: "purple.300",
+            }}
+            fontWeight="500"
+            ml={-0.5}
+            mt={-1}
+          >
+            {article.link.split("/")[2]}
+          </Heading>
           {/* <Text lineHeight={6} fontWeight={400}></Text> */}
           <HStack alignItems="center">
             <Icon
