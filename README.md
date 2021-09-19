@@ -2,7 +2,7 @@
 
 - Built using React Native
 - Communicates with BackEnd REST API
-  ([https://github.com/samRC/stocks-backend](https://github.com/samRC/stocks-backend))
+  - [https://github.com/samRC/stocks-backend](https://github.com/samRC/stocks-backend)
 
 # Demo
 
